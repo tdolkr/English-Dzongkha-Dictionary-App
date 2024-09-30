@@ -1,0 +1,8 @@
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="my_primary">#595C6E</color> <!-- Your primary color -->
+    <color name="my_primary_dark">#303F9F</color> <!-- Your primary dark color -->
+    <color name="my_accent">#FF4081</color> <!-- Your accent color -->
+    <color name="grey">#898989</color>
+</resources>

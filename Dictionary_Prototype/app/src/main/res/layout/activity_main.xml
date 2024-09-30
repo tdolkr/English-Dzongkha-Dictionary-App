@@ -1,0 +1,147 @@
+<androidx.drawerlayout.widget.DrawerLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/drawer_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="#FFDBDEF1"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"/>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="16dp"
+        android:orientation="vertical"
+        android:background="@color/white">
+
+        <!-- Search and Menu Layout -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            >
+
+            <!-- Toolbar with navigation icon (3 dots menu) -->
+            <ImageView
+                android:id="@+id/menu_icon"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@drawable/ic_menu"
+                android:contentDescription="Menu Icon"
+                android:layout_marginEnd="8dp"/>
+
+            <!-- Search input field -->
+            <EditText
+                android:id="@+id/search_input"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:hint="Search word here"
+                android:background="@drawable/rounded_corner"
+                android:padding="12dp"
+                android:layout_marginEnd="8dp"
+                android:inputType="textNoSuggestions"
+                android:imeOptions="actionSearch"
+                android:importantForAutofill="noExcludeDescendants"
+                android:allowUndo="false"
+                android:longClickable="false"
+                android:textIsSelectable="false"/>
+
+            <!-- Search button -->
+            <ImageButton
+                android:id="@+id/search_btn"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:background="@drawable/circle_background"
+            android:src="@drawable/ic_search"
+            android:contentDescription="Search"
+            android:padding="8dp"
+            android:tint="@android:color/white"/>
+
+
+        </LinearLayout>
+
+        <!-- Word and Favorite Icon Display -->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp">
+
+            <TextView
+                android:id="@+id/word_textview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:textColor="#3F51B5"
+                android:textSize="30sp"
+                android:textStyle="bold"
+                tools:text="word" />
+
+            <ImageView
+                android:id="@+id/favorite_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:src="@drawable/ic_favorite_border"
+                android:padding="8dp"
+                android:visibility="gone"/>
+
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/phonetic_textview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/word_textview"
+        android:layout_marginTop="8dp"
+        android:textColor="@color/grey"
+        android:textSize="16sp"
+        android:visibility="gone"
+        tools:text="/t e s t/"/>
+
+        <!-- WebView for Local Dictionary Definitions -->
+        <WebView
+            android:id="@+id/definition_webview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"/>
+
+        <!-- RecyclerView for Search History -->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/historyRecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"/>
+
+        <!-- RecyclerView for Remote API Meanings -->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/meaningRecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+    </LinearLayout>
+
+
+    <!-- Navigation Drawer -->
+    <com.google.android.material.navigation.NavigationView
+        android:id="@+id/nav_view"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:background="#FFDBDEF1"
+        app:menu="@menu/drawer_menu"/>
+
+
+
+</androidx.drawerlayout.widget.DrawerLayout>
